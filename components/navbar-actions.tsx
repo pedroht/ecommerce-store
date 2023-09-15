@@ -1,15 +1,11 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useMounted } from "@/hooks/use-mounted";
 import { ShoppingBag } from "lucide-react";
-import { useEffect, useState } from "react";
 
 export function NavbarActions() {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const isMounted = useMounted();
 
   if (!isMounted) {
     return null;
