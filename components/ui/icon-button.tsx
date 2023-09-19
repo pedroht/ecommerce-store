@@ -15,7 +15,7 @@ export function IconButton({ onClick, icon, className }: IconButtonProps) {
     <Button
       onClick={onClick}
       className={cn(
-        "rounded-ull flex items-center justify-center bg-white border shadow-md p-2 hover:scale-110 transition",
+        "rounded-ull flex items-center justify-center bg-white border shadow-md p-2 hover:scale-110 transition text-gray-900",
         className
       )}
     >
