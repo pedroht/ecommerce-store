@@ -6,12 +6,19 @@ import Image from "next/image";
 
 import { Currency } from "@/components/ui/currency";
 import { IconButton } from "@/components/ui/icon-button";
+import { useCart } from "@/hooks/use-cart";
 
 interface CartItemProps {
   data: Product;
 }
 
 export function CartItem({ data }: CartItemProps) {
+  const cart = useCart();
+
+  function handleRemove() {
+    cart.removeItem(data.id);
+  }
+
   return (
     <li className="flex py-6 border-b">
       <div className="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48">
@@ -25,7 +32,7 @@ export function CartItem({ data }: CartItemProps) {
 
       <div className="relative ml-4 flex flex-1 flex-col justify-between">
         <div className="absolute z-10 right-0 top-0">
-          <IconButton onClick={() => ({})} icon={<X size={15} />} />
+          <IconButton onClick={handleRemove} icon={<X size={15} />} />
         </div>
 
         <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
