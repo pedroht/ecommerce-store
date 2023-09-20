@@ -8,6 +8,7 @@ import { MouseEventHandler } from "react";
 import { Currency } from "@/components/ui/currency";
 import { IconButton } from "@/components/ui/icon-button";
 
+import { useCart } from "@/hooks/use-cart";
 import { Product } from "@/types";
 
 interface ProductCardProps {
@@ -16,6 +17,7 @@ interface ProductCardProps {
 
 export function ProductCard({ data }: ProductCardProps) {
   const router = useRouter();
+  const cart = useCart();
 
   function handleClick() {
     router.push(`/product/${data?.id}`);
@@ -25,6 +27,12 @@ export function ProductCard({ data }: ProductCardProps) {
     event.stopPropagation();
 
     router.push(`/product/${data?.id}`);
+  };
+
+  const handleAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+    event.stopPropagation();
+
+    cart.addItem(data);
   };
 
   return (
@@ -48,7 +56,7 @@ export function ProductCard({ data }: ProductCardProps) {
             />
 
             <IconButton
-              onClick={() => {}}
+              onClick={handleAddToCart}
               icon={<ShoppingCart size={20} className="text-gray-600" />}
             />
           </div>
