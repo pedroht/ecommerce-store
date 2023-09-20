@@ -1,7 +1,6 @@
 "use client";
 
 import { PreviewModal } from "@/components/preview-modal";
-
 import { useMounted } from "@/hooks/use-mounted";
 
 export function ModalProvider() {
