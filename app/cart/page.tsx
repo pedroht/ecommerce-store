@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/container";
 import { useCart } from "@/hooks/use-cart";
 
 import { CartItem } from "./components/cart-items";
+import { Summary } from "./components/summary";
 
 export default function CartPage() {
   const cart = useCart();
@@ -26,6 +27,8 @@ export default function CartPage() {
                 ))}
               </ul>
             </div>
+
+            <Summary />
           </div>
         </div>
       </Container>
