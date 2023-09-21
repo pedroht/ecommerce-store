@@ -3,11 +3,17 @@
 import { Container } from "@/components/ui/container";
 import { useCart } from "@/hooks/use-cart";
 
+import { useMounted } from "@/hooks/use-mounted";
 import { CartItem } from "./components/cart-items";
 import { Summary } from "./components/summary";
 
 export default function CartPage() {
   const cart = useCart();
+  const isMounted = useMounted();
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <div className="bg-white">

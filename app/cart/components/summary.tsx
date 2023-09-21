@@ -51,7 +51,11 @@ export function Summary() {
         </div>
       </div>
 
-      <Button onClick={handleCheckout} className="w-full mt-6">
+      <Button
+        disabled={items.length === 0}
+        onClick={handleCheckout}
+        className="w-full mt-6"
+      >
         Checkout
       </Button>
     </div>
